@@ -1,4 +1,4 @@
-/* Small library of Math Methods */
+/* Math Methods */
 .global Math.isPerfectSquare
 .global Math.Modulo
 

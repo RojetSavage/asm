@@ -1,4 +1,4 @@
-/* Small library of Array Methods */
+/* Array Methods */
 
 
 .global Array.Contains
