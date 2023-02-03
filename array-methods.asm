@@ -1,20 +1,17 @@
-/* Array Methods */
+/* Library of Array Methods */
 
-
-.global Array.Contains
-.global Array.Sum
-.global Array.Min
-.global Array.Max
+.global ARRAY_CONTAINS
+.global ARRAY_SUM
+.global ARRAY_MIN
+.global ARRAY_MAX
 
 
 /* Searches array for value, returns 1 if found, 0 if not */
-Array.Contains:	
+ARRAY_CONTAINS:	
     @r0	-	pointer to array
     @r1	-	len of array
     @r2	-	search value
     @r3	-	returns 1 if true, 0 if false
-    push {lr}
-
 
     mov r4, #0				//init array offset
     ldr r5, [r0, r4]		//init current value
@@ -53,10 +50,10 @@ bx lr
 
 
 /* Returns the sum of an array */
-Array.Sum:
+ARRAY_SUM:
     @r0	-	pointer to array
-    @r1	-	len of array
-    @r2	-	returns Sum of Array
+    @r1	-	length of array
+    @r2	-	returns value
 
     mov r4, #0				//init array offset
     ldr r2, [r0, r4]		//init current sum
@@ -67,7 +64,7 @@ Array.Sum:
     add r4, #4				//increment index array	
     sub r1, r1, #1
     sumLoop:
-        ldr r3, [r0, r4]	//grab next value
+        ldr r3, [r0, r4]	//get next value
         add r2, r2, r3		//add 
 
         add r4, #4			//increment index array	
@@ -80,10 +77,10 @@ bx lr
 
 
 /* Returns the minimum number in an array */
-Array.Min:
+ARRAY_MIN:
     @r0	- pointer to array
     @r1	- len of array
-    @r2	- returns Minimum Value
+    @r2	- return value
 
     mov r4, #0				//init array offset
     ldr r2, [r0, r4]		//init current smallest value
@@ -115,10 +112,10 @@ bx lr
 
 
 /* Returns the maximum number in an array */
-Array.Max:
+ARRAY_MAX:
     @r0	- pointer to array
     @r1	- len of array
-    @r2	- returns Maximum Value
+    @r2	- returns value
 
     mov r4, #0				//init array offset
     ldr r2, [r0, r4]		//init current largest value
@@ -144,6 +141,5 @@ Array.Max:
 
     maxBaseCaseExit:
 bx lr
-
 
 

@@ -1,7 +1,7 @@
-.global _SETUP_LED
-.global _FLASH
+.global SETUP_LED
+.global FLASH
 
-_SETUP_LED:
+SETUP_LED:
 	ldr	r0, =mem
 	ldr	r1, =0x101002	/* O_RDWR | O_SYNC */
 	mov	r7, #5		/* open */
@@ -23,7 +23,7 @@ _SETUP_LED:
 bx lr
 
 
-_FLASH:
+FLASH:
 @parameter r1 - number of flashes
 
     loop$:
